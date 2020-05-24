@@ -46,23 +46,20 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="#header">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#team">Team</a></li>
-          <li class="drop-down"><a href="">Action</a>
+          <li><a href="./accounts/lost.php">Lost Something</a></li>
+          <li><a href="./accounts/found.php">Found Something</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li class="drop-down"><a href="#">Welcome <?php echo "User"?></a>
             <ul>
-              <li><a href="#">Lost Something</a></li>
-              <li><a href="#">Found Something</a></li>
+              <li><a href="#">Profile</a></li>
+              <li><a href="#">Logout</a></li>
               <li><a href="#">Check Status</a></li>
             </ul>
           </li>
-          <li><a href="#contact">Contact</a></li>
+          
 
         </ul>
       </nav><!-- .nav-menu -->
-      <a href="./accounts/login.html" class="get-started-btn scrollto">LOGIN</a>
-
     </div>
   </header><!-- End Header -->
 
