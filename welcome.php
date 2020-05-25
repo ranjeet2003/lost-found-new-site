@@ -52,8 +52,8 @@
           <li class="drop-down"><a href="#">Welcome <?php echo "User"?></a>
             <ul>
               <li><a href="#">Profile</a></li>
-              <li><a href="#">Logout</a></li>
               <li><a href="#">Check Status</a></li>
+              <li><a href="#">Logout</a></li>
             </ul>
           </li>
           
