@@ -1362,3 +1362,9 @@ section {
     text-align-last: center;
   }
 }
+.ixx{
+  min-height: 199px;
+  max-height: 200px;
+  max-width: 250px;
+  padding-left: 50px;
+}
