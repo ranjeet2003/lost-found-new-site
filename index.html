@@ -40,7 +40,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a href="index.html">Lost-Found</a></h1>
+      <h1 class="logo mr-auto"><a href="index.php">Lost-Found</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -49,18 +49,19 @@
           <li class="active"><a href="#header">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
-
+          <li><a href="#team">Team</a></li>
+          <li class="drop-down"><a href="">Action</a>
             <ul>
               <li><a href="#">Lost Something</a></li>
               <li><a href="#">Found Something</a></li>
               <li><a href="#">Check Status</a></li>
             </ul>
-          </li>-->
+          </li>
           <li><a href="#contact">Contact</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->
-      <a href="./accounts/login.html" class="get-started-btn scrollto">LOGIN</a>
+      <a href="./accounts/login.php" class="get-started-btn scrollto">LOGIN</a>
 
     </div>
   </header><!-- End Header -->
@@ -93,19 +94,26 @@
       <div class="container">
 
         <div class="row">
-          <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
+          <div class="col-lg-4 col-md-6">
             <div class="icon-box">
-
+              <div class="icon d-flex justify-content-center"><i class="icofont-funky-man"></i></div>
+              <h4 class="title"><a href="">Lost Something ?</a></h4>
+              <p class="description">There may be a chance that your lost document may be found by someone who is kind hearted.</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
             <div class="icon-box">
-
+              <div class="icon d-flex justify-content-center"><i class="icofont-hand-drag2"></i></div>
+              <h4 class="title"><a href="">How will it possible</a></h4>
+              <p class="description">It may be possible that kind hearted person may upload your document with proper detail. if matched, we notify you, so that you can meet and find your document.
+              </p>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
+          <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
             <div class="icon-box">
-
+              <div class="icon d-flex justify-content-center"><i class="icofont-hotel-boy"></i></div>
+              <h4 class="title"><a href="">Found Something</a></h4>
+              <p class="description">If you have found someone's valuable docs, it is your responsbility to return it to right person. Just register yourself, We'll handle everything</p>
             </div>
           </div>
         </div>
@@ -148,18 +156,49 @@
         <div class="row counters">
 
           <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">232</span>
-
+            <span data-toggle="counter-up">
+              <?php
+                include('dbcon.php');
+                $qry="SELECT * FROM `info`";
+                $run=mysqli_query($con,$qry);
+                $row=mysqli_num_rows($run);
+                echo $row;
+              ?></span>
+            <p>Total Users</p>
           </div>
 
           <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">521</span>
-
+            <span data-toggle="counter-up">
+              <?php
+                include('dbcon.php');
+                $qry="SELECT * FROM `lost_info`";
+                $run=mysqli_query($con,$qry);
+                $row=mysqli_num_rows($run);
+                echo $row;
+              ?></span>
+            <p>Uploaded Lost Documents</p>
           </div>
 
           <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">1,463</span>
+            <span data-toggle="counter-up"><?php
+                include('dbcon.php');
+                $qry="SELECT * FROM `found_info`";
+                $run=mysqli_query($con,$qry);
+                $row=mysqli_num_rows($run);
+                echo $row;
+              ?></span>
+            <p>Uploaded Found Documents</p>
+          </div>
 
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up"><?php
+                include('dbcon.php');
+                $qry="SELECT * FROM lost_info a WHERE a.dserialno in(select dserialno from found_info )";
+                $run=mysqli_query($con,$qry);
+                $row=mysqli_num_rows($run);
+                echo $row;
+              ?></span>
+            <p>Matched and Returned</p>
           </div>
 
         </div>
@@ -207,7 +246,8 @@
       </div>
     </section><!-- End Services Section -->
 
-
+    <!-- ======= Portfolio Section ======= -->
+    <!-- End Portfolio Section -->
 
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials section-bg">
